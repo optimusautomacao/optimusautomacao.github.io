@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimus - Automação e Sonorização</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="bg-gray-800 shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="https://i.postimg.cc/d1BndtmP/LOGO.png" alt="Logotipo Optimus" class="mr-2 h-8">
+                <span class="text-xl font-semibold text-rose-600">Optimus</span>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#inicio" class="text-gray-300 hover:text-rose-600 transition duration-300">Início</a></li>
+                    <li><a href="#quem-somos" class="text-gray-300 hover:text-rose-600 transition duration-300">Quem Somos</a></li>
+                    <li><a href="#nossos-servicos" class="text-gray-300 hover:text-rose-600 transition duration-300">Nossos Serviços</a></li>
+                    <li><a href="#fale-conosco" class="text-gray-300 hover:text-rose-600 transition duration-300">Fale Conosco</a></li>
+                </ul>
+            </nav>
+            <button id="menu-button" class="md:hidden text-gray-300 focus:outline-none" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-90 z-50">
+        <div class="bg-gray-800 w-80 h-full absolute right-0 p-6">
+            <div class="flex justify-end mb-4">
+                <button id="close-menu-button" class="text-gray-300 focus:outline-none" aria-label="Fechar Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="block">
+                <ul class="space-y-4">
+                    <li><a href="#inicio" class="block text-lg text-gray-300 hover:text-rose-600 transition duration-300">Início</a></li>
+                    <li><a href="#quem-somos" class="block text-lg text-gray-300 hover:text-rose-600 transition duration-300">Quem Somos</a></li>
+                    <li><a href="#nossos-servicos" class="block text-lg text-gray-300 hover:text-rose-600 transition duration-300">Nossos Serviços</a></li>
+                    <li><a href="#fale-conosco" class="block text-lg text-gray-300 hover:text-rose-600 transition duration-300">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section id="inicio" class="bg-rose-100 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">O melhor da automação e sonorização</h1>
+            <p class="text-lg text-gray-700 mb-8">Soluções inovadoras para sua casa e empresa.</p>
+            <a href="#nossos-servicos" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">Nossos Serviços</a>
+        </div>
+    </section>
+
+    <section id="quem-somos" class="bg-white py-20">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                <h2 class="text-2xl font-semibold text-rose-600 mb-4">Quem Somos</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Com o intuito de oferecer as melhores soluções para nossos clientes, estamos sempre buscando por conhecimento aliado à tecnologia. A Optimus Automação e Sonorização é especialista em automação residencial e predial, oferecendo diversos serviços e projetos personalizados. Prestamos serviços desde a concepção e viabilidade do projeto, passando pela elaboração dos projetos das várias disciplinas, compatibilização interdisciplinar, seguindo ao planejamento e execução da obra.
+                </p>
+            </div>
+            <div>
+                <img src="[Image of Optimus Team]" alt="Equipe Optimus" class="rounded-lg shadow-lg w-full">
+            </div>
+        </div>
+    </section>
+
+    <section id="nossos-servicos" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-rose-600 mb-8 text-center">Nossos Serviços</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Automação Residencial</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Controle de iluminação, sistemas de áudio e vídeo, climatização, segurança e muito mais.
+                    </p>
+                    <a href="#fale-conosco" class="text-rose-600 hover:text-rose-800 font-semibold transition duration-300">Saiba Mais</a>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Sonorização de Ambientes</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Projetos personalizados de sonorização para residências, empresas e eventos.
+                    </p>
+                    <a href="#fale-conosco" class="text-rose-600 hover:text-rose-800 font-semibold transition duration-300">Saiba Mais</a>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Projetos Personalizados</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Desenvolvemos projetos de automação e sonorização que atendem às suas necessidades específicas.
+                    </p>
+                    <a href="#fale-conosco" class="text-rose-600 hover:text-rose-800 font-semibold transition duration-300">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localizacao" class="bg-rose-100 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-semibold text-rose-600 mb-8 text-center">Localização</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-gray-700 text-lg">
+                        <strong>Optimus Automação e Sonorização</strong><br>
+                        Rua Floriano Peixoto, 40, Centro<br>
+                        Formiga - MG, 35570-000<br>
+                        <a href="https://maps.app.goo.gl/your-google-maps-link" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition duration-300 mt-4 inline-block">
+                            Ver no Mapa
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29401.73777421845!2d-45.42133563963497!3d-20.281313322734716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa51d07d3b15bbf%3A0x5b3515b014e9e99b!2sFormiga%2C+MG!5e0!3m2!1spt-BR!2sbr!4v1691678421718!5m2!1spt-BR!2sbr" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fale-conosco" class="bg-gray-800 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-semibold text-rose-600 mb-8 text-white">Fale com nossa equipe!</h2>
+            <p class="text-lg text-gray-300 mb-4">
+                Entre em contato conosco através dos canais abaixo:
+            </p>
+            <div class="mt-6 flex justify-center flex-wrap gap-6">
+                <a href="https://api.whatsapp.com/send?phone=5537999220458" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-rose-600 transition duration-300 flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>(37) 99922-0458</span>
+                </a>
+                <a href="https://www.instagram.com/optimusautomacao/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-rose-600 transition duration-300 flex items-center gap-2">
+                    <i class="fab fa-instagram text-2xl"></i>
+                    <span>@optimusautomacao</span>
+                </a>
+                 <a href="https://maps.app.goo.gl/your-google-maps-link" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-rose-600 transition duration-300 flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                    <span>Rua Floriano Peixoto, 40, Centro, Formiga-MG</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuButton.addEventListener('click', toggleMobileMenu);
+        closeMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(event.target) && event.target !== menuButton) {
+                toggleMobileMenu();
+            }
+        });
+
+        function updateActiveNavLink() {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
