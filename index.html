@@ -15,8 +15,22 @@
         .nav-active {
              font-weight: 600; /* Torna o texto um pouco mais forte */
         }
-        /* Garante que o conteúdo não fique escondido sob o header fixo */
-        /* O padding é aplicado dinamicamente via JS agora */
+        /* CSS Personalizado para a seção Hero com background-blend-mode */
+        #inicio {
+          /* Camadas de fundo: gradiente de cor sólida translúcida por cima, imagem por baixo */
+          background-image:
+            /* Camada 1: Overlay de cor primária com 90% opacidade (aumentado de 0.8 para 0.9) */
+            linear-gradient(rgba(145, 48, 50, 0.9), rgba(145, 48, 50, 0.9)),
+            /* Camada 2: Imagem de fundo */
+            url('https://blog.maxmilhas.com.br/wp-content/uploads/2019/09/M%C3%A3o-clicando-no-celular-no-avi%C3%A3o.jpg');
+
+          /* Garante que a imagem cubra toda a área */
+          background-size: cover;
+          /* Centraliza a imagem */
+          background-position: center;
+          /* Modo de mesclagem: 'multiply' escurece a imagem com a cor. */
+          background-blend-mode: multiply;
+        }
     </style>
 </head>
 <body class="bg-[#ffffff]">
@@ -63,7 +77,8 @@
     </div>
 
     <main>
-        <section id="inicio" class="bg-[#913032] py-20"> <div class="container mx-auto px-4 text-center">
+        <section id="inicio" class="relative py-20">
+                 <div class="container relative mx-auto px-4 text-center">
                 <h1 class="text-3xl font-bold text-[#ffffff] mb-4">O melhor da automação e sonorização</h1>
                 <p class="text-lg text-[#ffffff] mb-8">Soluções inovadoras para sua casa e empresa.</p>
                 <a href="#nossos-servicos" class="bg-[#ffffff] hover:bg-[#ffffff] text-[#913032] font-semibold py-3 px-6 rounded-full transition duration-300">Nossos Serviços</a>
@@ -71,7 +86,7 @@
         </section>
 
         <section id="quem-somos" class="bg-[#ffffff] py-20">
-            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10">
                 <div>
                     <h2 class="text-2xl font-semibold text-[#913032] mb-4">Quem Somos</h2>
                     <p class="text-[#913032] leading-relaxed">
@@ -81,13 +96,14 @@
                 <div>
                      <img src="https://i.postimg.cc/76MWxrBh/Chat-GPT-Image-12-de-abr-de-2025-18-43-30.png"
                           alt="Equipe Optimus"
-                          class="rounded-lg shadow-lg w-full"
+                          class="rounded-lg shadow-lg w-full h-full object-cover"
                           onerror="this.onerror=null; this.src='https://placehold.co/500x300/cccccc/ffffff?text=Imagem+Indispon%C3%ADvel'">
                 </div>
             </div>
         </section>
 
-        <section id="nossos-servicos" class="bg-[#ffffff] py-20"> <div class="container mx-auto px-4">
+        <section id="nossos-servicos" class="bg-[#ffffff] py-20">
+            <div class="container mx-auto px-4">
                 <h2 class="text-2xl font-semibold text-[#913032] mb-8 text-center">Nossos Serviços</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-[#913032] rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
@@ -215,7 +231,8 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - headerHeight;
                 const sectionHeight = section.clientHeight;
-                const offset = headerHeight > 0 ? headerHeight + 20 : 100;
+                // Adiciona uma pequena margem extra no cálculo do offset para ativar o link um pouco antes
+                const offset = headerHeight > 0 ? headerHeight + 40 : 120; // Aumentei o offset
                 if (scrollPosition >= sectionTop - offset && scrollPosition < sectionTop + sectionHeight - offset) {
                     currentSectionId = section.getAttribute('id');
                 }
@@ -238,7 +255,12 @@
 
         function adjustMainPadding() {
             if (mainContent && header) {
-                 mainContent.style.paddingTop = `${header.offsetHeight}px`;
+                 // Garante que o padding seja aplicado apenas se o header estiver visível e fixo
+                 if (window.getComputedStyle(header).position === 'fixed') {
+                    mainContent.style.paddingTop = `${header.offsetHeight}px`;
+                 } else {
+                    mainContent.style.paddingTop = '0px';
+                 }
             }
         }
 
@@ -247,7 +269,11 @@
             adjustMainPadding(); // Ajusta o padding no carregamento
             setTimeout(updateActiveNavLink, 100); // Atualiza link ativo
         });
-        window.addEventListener('resize', adjustMainPadding); // Ajusta o padding ao redimensionar
+        window.addEventListener('resize', () => {
+            adjustMainPadding(); // Ajusta o padding ao redimensionar
+            updateActiveNavLink(); // Atualiza link ativo ao redimensionar
+        });
+
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (!anchor.closest('#mobile-menu')) {
@@ -256,7 +282,11 @@
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if (targetElement && header) {
-                        const headerOffset = header.offsetHeight;
+                        let headerOffset = 0;
+                        // Considera a altura do header apenas se ele estiver fixo
+                        if (window.getComputedStyle(header).position === 'fixed') {
+                            headerOffset = header.offsetHeight;
+                        }
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
